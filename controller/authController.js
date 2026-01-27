@@ -74,3 +74,7 @@ export const login= async(req,res)=>{
         return res.status(500).json({message: "Login failed"})
     }
 }
+
+// export const getDash= async(req,res)=>{
+//     res.send("Welcome to the Dashboard!!");
+// }
