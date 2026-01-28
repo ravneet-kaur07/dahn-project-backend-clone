@@ -65,16 +65,18 @@ export const login= async(req,res)=>{
 
         // console.log("Token generated: ",token);
 
-        user.password= undefined;
+        // user.password= undefined;
 
-        res.status(200).json({message: "Login successful!!", token, user});
+        res.status(200).json({message: "Login successful!!", token, user: {
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            status: user.status
+        }});
 
     }catch(err){
         console.log("Login failed: ",err);
         return res.status(500).json({message: "Login failed"})
     }
 }
-
-// export const getDash= async(req,res)=>{
-//     res.send("Welcome to the Dashboard!!");
-// }
