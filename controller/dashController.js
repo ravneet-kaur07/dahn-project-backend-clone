@@ -2,6 +2,8 @@
 
 export const getDash= async(req,res)=>{
     // res.send("Welcome to the Dashboard!!");
+
+    // console.log("Cookies: ", req.cookies);
     const role= req.user.role;
 
     const common= ["suggestions", "settings", "change_password"];
