@@ -3,7 +3,8 @@ import jwt from 'jsonwebtoken';
 export const userAuth= async(req, res, next)=>{
     // console.log("Headers:", req.headers);
     // console.log("Authorization Header:", req.headers.authorization);
-    const token= req.headers.authorization?.split(" ")[1];
+    // const token= req.headers.authorization?.split(" ")[1];
+    const token= req.cookies.token;
     if(!token){
         // console.log("Token: ",token)
         return res.status(401).json({message: "Unauthorized access!!"});
