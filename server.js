@@ -3,12 +3,14 @@ import express from 'express';
 import authRouter from './routes/authRoutes.js';
 import dashRouter from './routes/dashRoutes.js';
 import connectDB from './config/db.js'; 
+import profileRouter from './routes/profileRoutes.js';
 
 dotenv.config();
 const app= express();
 app.use(express.json());
 app.use('/', authRouter);
-app.use('/dashboard', dashRouter)
+app.use('/dashboard', dashRouter);
+app.use('/profile', profileRouter);
 
 app.listen(process.env.PORT, ()=>{
     try{
