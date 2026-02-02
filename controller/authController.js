@@ -82,3 +82,15 @@ export const login= async(req,res)=>{
         return res.status(500).json({message: "Login failed"})
     }
 }
+
+export const validateUser= (req, res)=>{
+    try{
+        res.status(200).json({
+        id: req.user.id,
+        email: req.user.email,
+        role: req.user.role,
+     })
+    }catch(err){
+        return res.status(500).json({message: "Validation failed"})
+    }
+}
