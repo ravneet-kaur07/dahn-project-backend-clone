@@ -58,7 +58,7 @@ export const login= async(req,res)=>{
         }
 
         const token= jwt.sign(
-            {id: user._id, role: user.role},
+            {id: user._id, name: user.name, role: user.role, email: user.email},
             process.env.JWT_SECRET,
             {expiresIn: "2d"}
         )
@@ -87,6 +87,7 @@ export const validateUser= (req, res)=>{
     try{
         res.status(200).json({
         id: req.user.id,
+        name: req.user.name,
         email: req.user.email,
         role: req.user.role,
      })
