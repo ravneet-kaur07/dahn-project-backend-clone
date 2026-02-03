@@ -1,12 +1,16 @@
 import User from "../model/users.js";
 
 export const getProfile= async(req, res)=>{
-    const user= req.user;
+    const user= req.user.id;
+    let profile;
+    if(user){
+        profile= await User.findById(user);
+    }
 
     res.json({user:{
-        name: user.name,
-        email: user.email,
-        role: user.role
+        name: profile.name,
+        email: profile.email,
+        role: profile.role
     }})
 }
 
